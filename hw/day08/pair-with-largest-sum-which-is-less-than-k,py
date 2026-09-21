@@ -1,0 +1,24 @@
+class Solution:
+    def maxSum(self, arr, k):
+        arr.sort()
+        l = 0
+        r = len(arr) - 1
+        max_sum = -1
+        max_diff = -1
+        res = [-1, -1]
+        while l < r:
+            c_sum = arr[l] + arr[r]
+            if c_sum >= k:
+                r -= 1
+            else:
+                diff = arr[r] - arr[l]
+                if c_sum > max_sum:
+                    max_sum = c_sum
+                    max_diff = diff
+                    res = [arr[l], arr[r]]
+                elif c_sum == max_sum:
+                    if diff > max_diff:
+                        max_diff = diff
+                        res = [arr[l], arr[r]]
+                l += 1
+        return res
