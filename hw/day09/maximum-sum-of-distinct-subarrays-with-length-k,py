@@ -1,0 +1,19 @@
+class Solution:
+    def maximumSubarraySum(self, nums, k):
+        s = set()
+        l = 0
+        total = 0
+        ans = 0
+        for r in range(len(nums)):
+            while nums[r] in s:
+                s.remove(nums[l])
+                total -= nums[l]
+                l += 1
+            s.add(nums[r])
+            total += nums[r]
+            if r - l + 1 == k:
+                ans = max(ans, total)
+                s.remove(nums[l])
+                total -= nums[l]
+                l += 1
+        return ans
