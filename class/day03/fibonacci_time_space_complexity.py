@@ -1,13 +1,12 @@
-try:
-    n = int(input())
-    x = 0
-    y = 1
-    if n == 1:
-        print(x)
-    else:
-        print(x, y, end=' ')
-        for i in range(2, n):
-            x, y = y, x + y
-            print(y, end=' ')
-except:
-    print("Invalid input")
+# cook your dish here
+n = input()
+if n.isdigit():
+    n = int(n)
+    a = 0
+    b = 1
+    for i in range(n):
+        print(a)
+        a = b
+        b = a + b
+else:
+    print("Invalid Input")
